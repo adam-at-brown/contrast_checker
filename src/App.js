@@ -17,4 +17,7 @@ export default function App() {
 const Wrap = styled.div`
   padding: 1rem;
   text-align: center;
+  max-width: 1000px;
+  margin: auto;
+  background-color: #efefef;
 `
