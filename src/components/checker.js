@@ -17,7 +17,7 @@ export default function Checker() {
   return (
     <div>
       <select
-        onChange={e => setColor2(e.target.value)}
+        onChange={e => setColor1(e.target.value)}
         style={{ padding: "10px", margin: "5px" }}
       >
         {Object.keys(hexOnlyColors).map(k => {
@@ -29,7 +29,7 @@ export default function Checker() {
         })}
       </select>
       <select
-        onChange={e => setColor1(e.target.value)}
+        onChange={e => setColor2(e.target.value)}
         style={{ padding: "10px", margin: "5px" }}
       >
         {Object.keys(hexOnlyColors).map(k => {
@@ -42,11 +42,13 @@ export default function Checker() {
       </select>
       <div>
         <h2>Light Mode Results</h2>
+        <p>{color1}: {light[color1]} | {color2}: {light[color2]} </p>
         <Preview color1={light[color1]} color2={light[color2]} />
         <Results large={lightMode.large} small={lightMode.small} />
       </div>
       <div>
         <h2>Dark Mode Results</h2>
+        <p>{color1}: {dark[color1]} | {color2}: {dark[color2]} </p>
         <Preview color1={dark[color1]} color2={dark[color2]} />
         <Results large={darkMode.large} small={darkMode.small} />
       </div>
