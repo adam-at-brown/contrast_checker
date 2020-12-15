@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import Checker from './components/checker'
+import styled from 'styled-components'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <Wrap>
+      <header>
+        <h1>A11Y Color Contrast Checker</h1>
       </header>
-    </div>
-  );
+      <main>
+        <Checker />
+      </main>
+    </Wrap>
+  )
 }
 
-export default App;
+const Wrap = styled.div`
+  padding: 1rem;
+  text-align: center;
+`
