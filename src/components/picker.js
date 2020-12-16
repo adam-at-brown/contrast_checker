@@ -3,7 +3,7 @@ import { compareColors } from "./helpers";
 import styled from "styled-components";
 import Results from "./results";
 import Preview from "./preview";
-import { SketchPicker } from "react-color";
+import { ChromePicker } from "react-color";
 
 export default function Checker() {
   const [color1, setColor1] = useState("#000000");
@@ -15,13 +15,13 @@ export default function Checker() {
       <h2>Try Your Own Colors</h2>
       <PickWrap>
         <div style={{ margin: "10px auto" }}>
-          <SketchPicker
+          <ChromePicker
             onChangeComplete={color => setColor1(color.hex)}
             color={color1}
           />
         </div>
         <div style={{ margin: "10px auto" }}>
-          <SketchPicker
+          <ChromePicker
             onChangeComplete={color => setColor2(color.hex)}
             color={color2}
           />
