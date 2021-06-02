@@ -30,7 +30,7 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.GH_TOKEN }}
       with:
-        source_file: 'public'
+        source_file: 'build'
         destination_folder: src/demo/contrast-checker
         destination_repo: BrownUniversity/webservices-static
         destination_branch: contrast-checker
