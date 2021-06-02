@@ -32,7 +32,7 @@ jobs:
       with:
         source_file: 'public'
         destination_folder: src/demo/contrast-checker
-        destination_repo: 'adam-at-brown/ws-static-base'
+        destination_repo: BrownUniversity/webservices-static
         destination_branch: contrast-checker
         user_name: adam-at-brown
         user_email: adam_holtzman@brown.edu
