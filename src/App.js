@@ -1,6 +1,5 @@
 import Checker from './components/checker'
 import styled from 'styled-components'
-import Collections from './components/collections'
 
 export default function App() {
   return (
@@ -11,7 +10,6 @@ export default function App() {
       <main>
         <Checker />
       </main>
-      <Collections />
     </Wrap>
   )
 }
