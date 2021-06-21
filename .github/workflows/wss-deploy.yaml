@@ -1,0 +1,36 @@
+name: Add Files to Webservices Static
+
+on:
+  push:
+    branches:
+      - "wss/action"
+
+jobs:
+  copy-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Navigate to repo
+      run: cd $GITHUB_WORKSPACE
+    - uses: actions/setup-node@v1
+      with:
+        node-version: "12.x"
+    - name: Install deps
+      run: yarn
+    - name: Build docs
+      run: yarn build
+
+    - name: Pushes to another repository
+      id: push_directory
+      uses: dmnemec/copy_file_to_another_repo_action@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.GH_TOKEN }}
+      with:
+        source_file: 'build'
+        destination_folder: src/demo/contrast-checker
+        destination_repo: BrownUniversity/webservices-static
+        destination_branch: contrast-checker
+        user_name: adam-at-brown
+        user_email: adam_holtzman@brown.edu
