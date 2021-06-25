@@ -29,7 +29,7 @@ jobs:
       with:
         repository: "adam-at-brown/ws-static-base"
         path: charlie
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.WEBS_TEST }}
 
     - name: Copy existing Files
       run: cp -r main/build charlie/complied-cra
@@ -38,7 +38,7 @@ jobs:
       id: pull-request
       uses: peter-evans/create-pull-request@v3
       with:
-        token: ${{ secrets.WSS_2 }}
+        token: ${{ secrets.WEBS_TEST }}
         path: charlie
         commit-message: "Update test passer stuff with compiled code"
         branch: cra-test-branch-name
