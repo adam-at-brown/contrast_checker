@@ -1,0 +1,57 @@
+name: Push Comple Time Files to New Repo
+
+on:
+  push:
+    branches:
+      - cra-test
+
+jobs:
+  copy-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Source
+      uses: actions/checkout@v2
+      with:
+        path: main
+
+    - name: Navigate to repo
+      run: cd $GITHUB_WORKSPACE
+    - uses: actions/setup-node@v1
+      with:
+        node-version: "12.x"
+    - name: Install deps
+      run: cd main && yarn
+    - name: Clean for Build
+      run: cd main && yarn clean
+    - name: Build docs
+      run: cd main && yarn build
+
+    - name: Checkout Receiving Repo
+      uses: actions/checkout@v2
+      with:
+        repository: "adam-at-brown/ws-static-base"
+        path: charlie
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Copy existing Files
+      run: cp -r main/build charlie/complied-cra
+
+    - name: Open Module Pull Request
+      id: pull-request
+      uses: peter-evans/create-pull-request@v3
+      with:
+        token: ${{ secrets.WSS_2 }}
+        path: charlie
+        commit-message: "Update test passer stuff with compiled code"
+        branch: cra-test-branch-name
+        title: "Make site go now better"
+        body: "Changes from ${{ github.event.pull_request.html_url }}"
+        labels: |
+            hello
+            cheese wiz
+        team-reviewers: |
+          owners
+          maintainers
+        reviewers: |
+          adam-at-brown
+          aholtzman
