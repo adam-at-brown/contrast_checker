@@ -32,7 +32,7 @@ jobs:
         token: ${{ secrets.WEBS_TEST }}
 
     - name: Copy existing Files
-      run: cp -r main/build reactapp/src/cra/contrast-checker
+      run: cp -r main/build reactapp/src/demo/contrast-checker/build
 
     - name: Open Pull Request in WS-S
       id: pull-request
