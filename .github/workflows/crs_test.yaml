@@ -1,4 +1,4 @@
-name: Push Comple Time Files to New Repo
+name: Push Create-React-App Files to Webservices-Static
 
 on:
   push:
@@ -27,29 +27,30 @@ jobs:
     - name: Checkout Receiving Repo
       uses: actions/checkout@v2
       with:
-        repository: "adam-at-brown/ws-static-base"
-        path: charlie
+        repository: "BrownUniversity/webservices-static"
+        path: reactapp
         token: ${{ secrets.WEBS_TEST }}
 
     - name: Copy existing Files
-      run: cp -r main/build charlie/complied-cra
+      run: cp -r main/build reactapp/src/cra/contrast-checker
 
-    - name: Open Module Pull Request
+    - name: Open Pull Request in WS-S
       id: pull-request
       uses: peter-evans/create-pull-request@v3
       with:
         token: ${{ secrets.WEBS_TEST }}
-        path: charlie
-        commit-message: "Update test passer stuff with compiled code"
-        branch: cra-test-branch-name
-        title: "Make site go now better"
-        body: "Changes from ${{ github.event.pull_request.html_url }}"
+        path: reactapp
+        commit-message: "Updated complied code for new C3 deployment"
+        branch: contrast-checker-cra
+        title: "Changes for WS-S deployment"
+        body: "Changes from adam-at-brown/contrast-checker"
         labels: |
-            hello
-            cheese wiz
+            test
+            cra deploy
+            github actions
         team-reviewers: |
           owners
           maintainers
         reviewers: |
           adam-at-brown
-          aholtzman
+          rnorigian
