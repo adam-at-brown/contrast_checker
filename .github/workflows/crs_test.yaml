@@ -42,8 +42,8 @@ jobs:
         path: reactapp
         commit-message: "Updated complied code for new C3 deployment"
         branch: contrast-checker-cra
-        title: "Changes for WS-S deployment"
-        body: "Changes from adam-at-brown/contrast-checker"
+        title: "Changes for WS-S deployment from Contrast Checker"
+        body: "Changes from adam-at-brown/contrast-checker @rnorigian @adam-at-brown"
         labels: |
             test
             cra deploy
