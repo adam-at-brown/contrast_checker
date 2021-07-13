@@ -1,9 +1,11 @@
-import Checker from './components/checker'
-import styled from 'styled-components'
+import Checker from "./components/checker";
+import styled from "styled-components";
+import GlobalStyle from "./components/global_style";
 
 export default function App() {
   return (
     <Wrap>
+      <GlobalStyle />
       <header>
         <h1>A11Y Color Contrast Checker</h1>
       </header>
@@ -11,7 +13,7 @@ export default function App() {
         <Checker />
       </main>
     </Wrap>
-  )
+  );
 }
 
 const Wrap = styled.div`
@@ -19,5 +21,4 @@ const Wrap = styled.div`
   text-align: center;
   max-width: 1000px;
   margin: auto;
-  background-color: #efefef;
-`
+`;
