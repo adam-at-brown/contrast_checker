@@ -28,7 +28,7 @@ const colors = {
   pink: "#e77c75",
   primary: "#687089",
   red: "#b73831",
-  roleDepartment: "505a5a",
+  roleDepartment: "#505a5a",
   roleFaculty: "#9351a6",
   roleGrad: "#3C8243",
   roleMed: "#007da3",

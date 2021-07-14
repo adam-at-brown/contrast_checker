@@ -1,4 +1,5 @@
 import Checker from "./components/checker";
+import Palette from "./components/palette";
 import styled from "styled-components";
 import GlobalStyle from "./components/global_style";
 
@@ -11,6 +12,7 @@ export default function App() {
       </header>
       <main>
         <Checker />
+        <Palette />
       </main>
     </Wrap>
   );
